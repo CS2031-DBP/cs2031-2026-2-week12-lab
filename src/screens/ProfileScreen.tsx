@@ -1,34 +1,33 @@
-import { View, StyleSheet } from 'react-native';
-import { Card, Text, Avatar } from 'react-native-paper';
+import { View, Text, StyleSheet } from 'react-native';
+
+// TODO (Paso 5 - Tu turno): reescribe esta pantalla usando al menos 2
+// componentes de React Native Paper (ej. Card para las tarjetas, Text con
+// variant="headlineSmall", etc). Documentación: https://callstack.github.io/react-native-paper/docs/guides/getting-started
 
 export function ProfileScreen() {
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Avatar.Text size={64} label="AG" />
-        <Text variant="headlineSmall" style={styles.name}>
-          Ana García
-        </Text>
+      <Text style={styles.title}>👤 Mi Perfil</Text>
+      <View style={styles.card}>
+        <Text style={styles.label}>Nombre:</Text>
+        <Text style={styles.value}>Ana García</Text>
       </View>
-      <Card style={styles.card}>
-        <Card.Content>
-          <Text variant="labelMedium">Email</Text>
-          <Text variant="bodyLarge">ana.garcia@utec.edu.pe</Text>
-        </Card.Content>
-      </Card>
-      <Card style={styles.card}>
-        <Card.Content>
-          <Text variant="labelMedium">Edad</Text>
-          <Text variant="bodyLarge">20 años</Text>
-        </Card.Content>
-      </Card>
+      <View style={styles.card}>
+        <Text style={styles.label}>Email:</Text>
+        <Text style={styles.value}>ana.garcia@utec.edu.pe</Text>
+      </View>
+      <View style={styles.card}>
+        <Text style={styles.label}>Edad:</Text>
+        <Text style={styles.value}>20 años</Text>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 16 },
-  header: { alignItems: 'center', marginVertical: 16 },
-  name: { marginTop: 12 },
-  card: { marginBottom: 12 },
+  title: { fontSize: 22, fontWeight: 'bold', marginBottom: 16, marginTop: 16 },
+  card: { backgroundColor: '#f0f0f0', padding: 12, borderRadius: 8, marginBottom: 12 },
+  label: { fontSize: 12, fontWeight: '600', color: '#666' },
+  value: { fontSize: 16, marginTop: 4 },
 });

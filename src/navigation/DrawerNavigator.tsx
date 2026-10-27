@@ -1,7 +1,6 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { TabNavigator } from './TabNavigator';
 import { ProfileScreen } from '../screens/ProfileScreen';
-import { SettingsScreen } from '../screens/SettingsScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -23,11 +22,11 @@ export function DrawerNavigator() {
         component={ProfileScreen}
         options={{ title: 'Mi Perfil', drawerLabel: 'Mi Perfil' }}
       />
-      <Drawer.Screen
-        name="Settings"
-        component={SettingsScreen}
-        options={{ title: 'Configuración', drawerLabel: 'Configuración' }}
-      />
+      {/* TODO (Paso 4 - Tu turno): agrega un tercer item "Settings"
+          1. Crea src/screens/SettingsScreen.tsx (puedes incluir un Switch
+             para notificaciones, otro para modo oscuro, o lo que quieras)
+          2. Impórtalo aquí
+          3. Añade un tercer <Drawer.Screen name="Settings" .../> */}
     </Drawer.Navigator>
   );
 }

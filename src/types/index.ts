@@ -18,7 +18,7 @@ export interface Student {
 export type TabNavigatorParamList = {
   Home: undefined;
   Courses: undefined;
-  Students: undefined;
+  // TODO (Paso 1 - Tu turno): agrega "Students: undefined" aquí
 };
 
 export type CoursesStackParamList = {
@@ -26,13 +26,10 @@ export type CoursesStackParamList = {
   CourseDetail: { courseId: number };
 };
 
-export type StudentsStackParamList = {
-  StudentsList: undefined;
-  StudentDetail: { studentId: number };
-};
+// TODO (Paso 2 - Tu turno): define StudentsStackParamList, similar a
+// CoursesStackParamList pero para estudiantes (StudentsList, StudentDetail).
 
 export type CoursesTopTabParamList = {
   All: undefined;
-  Mine: undefined;
+  // TODO (Paso 3 - Tu turno): agrega "Mine: undefined" aquí
 };
-
