@@ -1,4 +1,4 @@
-# Lab 12 — Navegación en React Native (CS2031 DBP 2026-1)
+# Lab 12 — Navegación en React Native (CS2031 DBP 2026-2)
 
 ## 📱 ¿Qué vamos a construir?
 
@@ -25,13 +25,39 @@ Asegúrate de tener:
 - **Node.js 20+** → `node --version`
 - **Expo Go app** instalada en tu teléfono o un emulador (Android Studio / Xcode)
 - **Git** instalado
-- **Backend de Semana 11** corriendo:
+- **JDK 26** (para levantar el backend) → `java -version`
+- **Backend de Semana 12** corriendo:
   ```bash
-  git clone https://github.com/CS2031-DBP/cs2031-2026-1-week11-backend.git
-  cd cs2031-2026-1-week11-backend
+  git clone https://github.com/CS2031-DBP/cs2031-2026-2-week12-backend.git
+  cd cs2031-2026-2-week12-backend
   ./mvnw spring-boot:run
   ```
-  Verifica: `curl http://localhost:8080/student` debe devolver JSON.
+  Espera a ver `Started LabWeek11BackendApplication` en la consola. **Deja esa
+  terminal abierta** — el backend debe seguir corriendo mientras trabajas en
+  el frontend.
+
+  **Verifica que responde** antes de seguir:
+  ```bash
+  curl http://localhost:8080/student
+  ```
+  Deberías ver un JSON con 3 estudiantes (Ana, Carlos, Lucía). Si no carga
+  nada, el backend no está corriendo — revisa esa terminal.
+
+### 🔌 Verifica la conexión backend ↔ frontend
+
+Con el backend corriendo, inicia este proyecto (`npx expo start --web` es la
+forma más rápida de probar sin un emulador) y abre las DevTools del navegador
+(`F12`) → pestaña **Network**. Deberías ver peticiones a
+`http://localhost:8080/student` y `http://localhost:8080/course` sin errores
+de CORS en la pestaña **Console**. Si la petición sale con status `200` y el
+JSON correcto, backend y frontend ya están conectados.
+
+| Síntoma | Causa probable |
+|---|---|
+| `ERR_CONNECTION_REFUSED` en Network | El backend no está corriendo, o escucha en otro puerto. |
+| Error de CORS en consola | El backend ya trae `CorsConfig` permitiendo cualquier origen; revisa que la URL en `src/services/api.ts` sea correcta. |
+| La request sale a `undefined/student` | Revisa `API_URL` en `src/services/api.ts`. |
+| En emulador Android no conecta | Usa `http://10.0.2.2:8080` en vez de `localhost` (ver sección 🔗 Configuración del API). |
 
 ---
 
@@ -805,7 +831,7 @@ Antes de entregar, verifica que tu app:
 - [React Navigation Docs](https://reactnavigation.org)
 - [Expo Docs](https://docs.expo.dev)
 - [React Native Paper Components](https://callstack.github.io/react-native-paper/docs/guides/getting-started)
-- [Backend API Endpoints](https://github.com/CS2031-DBP/cs2031-2026-1-week11-backend#endpoints)
+- [Backend API Endpoints](https://github.com/CS2031-DBP/cs2031-2026-2-week12-backend#endpoints)
 
 ---
 
